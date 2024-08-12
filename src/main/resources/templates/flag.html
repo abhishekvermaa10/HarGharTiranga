@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Har Ghar Tiranga</title>
+	<link
+	rel = "icon"
+	href="https://yt3.googleusercontent.com/cRbWBQspOR40r_gvfWTwnFIgRKKPrHB1_LWxygMxalSvb7yagxbWCRn5mgtCC25DScaCdD-e5Q=s160-c-k-c0x00ffffff-no-rj"
+	type="image/x-icon"
+	>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			background-color: black;
+			margin: 0;
+			flex-direction: column;
+			padding: 20px;
+			box-sizing: border-box;
+		}
+		#flag-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			position: relative;
+			max-width: 100%;
+		}
+		#flagpole {
+			width: 15px;
+			height: 50vh;
+			background-color: #8B4513;
+			position: relative;
+		}
+		#base {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		.base-level {
+			background-color: #8B4513;
+			height: 10px;
+		}
+		.level-1 {
+			width: 60px;
+		}
+		.level-2 {
+			width: 80px;
+		}
+		.level-3 {
+			width: 100px;
+		}
+		#flag {
+			width: 0;
+			height: 20vh;
+			position: absolute;
+			top: 0;
+			left: 54px;
+			background-color: #f0f0f0;
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
+			transition: width 1s ease-in-out;
+		}
+		.stripe {
+			width: 100%;
+			height: 50%;
+		}
+		.saffron {
+			background-color: #FF9933;
+		}
+		.white {
+			background-color: white;
+			position: relative;
+		}
+		.green {
+			background-color: #138808;
+		}
+		#ashoka-chakra {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 0;
+			height: 0;
+			margin-top: -20px;
+			margin-left: 2px;
+			border-radius: 50%;
+			border: 2px solid #000080;
+			background-color: white;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.spoke {
+			position: absolute;
+			margin-top: -20px;
+			margin-left: -1px;
+			width: 2px;
+			height: 39px;
+			background-color: #000080;
+			top: 50%;
+			left: 50%;
+			transform-origin: center center;
+			transform: translate(-50%, -50%);
+		}
+		#hoistButton {
+			margin-top: 20px;
+			padding: 10px 20px;
+			background-color: #FF9933;
+			border: none;
+			color: white;
+			font-size: 16px;
+			cursor: pointer;
+			border-radius: 5px;
+			transition: background-color 0.3s;
+		}
+		#hoistButton:hover {
+			background-color: #e68428;
+		}
+		.flower {
+			position: absolute;
+			top: -50px;
+			width: 40px;
+			height: 40px;
+			background-image: url('https://img.icons8.com/color/48/000000/flower--v1.png');
+			background-size: contain;
+			animation: fall 3s linear infinite;
+		}
+		#message{
+			position: absolute;
+			top: 10%;
+			font-size: 4vw;
+			font-weight: bold;
+			background-color:black;
+			display: none;
+			text-align: center;
+			width: max-content;
+			color: white;
+			display: none;
+		}
+		.happy{
+			color: #FF9933;
+		}
+		.independence{
+			color:white;
+		}
+		.day{
+			color: #138808;
+		}
+		@keyframes fall {
+			0% {
+				transform: translateY(0) rotate(0deg);
+			}
+			100% {
+				transform: translateY(600px) rotate(360deg);
+			}
+		}
+		#subscribe {
+			position: fixed;
+			bottom: 10px;
+			left: 50%;
+			transform: translateX(-50%);
+			text-align: center;
+			background-color: #f0f0f0;
+			padding: 10px 20px;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+			border-radius: 10px;
+			width: 90%;
+			max-width: 500px;
+		}
+@media (max-width: 600px) {
+    #subscribe {
+        width: 95%;
+        padding: 25px 20px;
+        font-size: 24px;
+        min-height: 100px;
+        box-sizing: border-box;
+    }
+    #subscribe img {
+        height: 60px;
+    }
+    #subscribe i {
+        font-size: 32px;
+    }
+}
+	</style>
+</head>
+<body>
+	<div id="message">
+		<span class="happy">Happy</span>
+		<span class="independence">Independence</span>
+		<span class="day">Day</span>
+		 2024</div>
+	<div id="flag-container">
+		<div id="flagpole"></div>
+		<div id="flag">
+			<div class="stripe saffron"></div>
+			<div class="stripe white">
+				<div id="ashoka-chakra">
+					<div class="spoke" style="transform: rotate(0deg);"></div>
+					<div class="spoke" style="transform: rotate(15deg);"></div>
+					<div class="spoke" style="transform: rotate(30deg);"></div>
+					<div class="spoke" style="transform: rotate(45deg);"></div>
+					<div class="spoke" style="transform: rotate(60deg);"></div>
+					<div class="spoke" style="transform: rotate(75deg);"></div>
+					<div class="spoke" style="transform: rotate(90deg);"></div>
+					<div class="spoke" style="transform: rotate(105deg);"></div>
+					<div class="spoke" style="transform: rotate(120deg);"></div>
+					<div class="spoke" style="transform: rotate(135deg);"></div>
+					<div class="spoke" style="transform: rotate(150deg);"></div>
+					<div class="spoke" style="transform: rotate(165deg);"></div>
+					<div class="spoke" style="transform: rotate(180deg);"></div>
+					<div class="spoke" style="transform: rotate(195deg);"></div>
+					<div class="spoke" style="transform: rotate(210deg);"></div>
+					<div class="spoke" style="transform: rotate(225deg);"></div>
+					<div class="spoke" style="transform: rotate(240deg);"></div>
+					<div class="spoke" style="transform: rotate(255deg);"></div>
+					<div class="spoke" style="transform: rotate(270deg);"></div>
+					<div class="spoke" style="transform: rotate(285deg);"></div>
+					<div class="spoke" style="transform: rotate(300deg);"></div>
+					<div class="spoke" style="transform: rotate(315deg);"></div>
+					<div class="spoke" style="transform: rotate(330deg);"></div>
+					<div class="spoke" style="transform: rotate(345deg);"></div>
+				</div>
+			</div>
+			<div class="stripe green"></div>
+		</div>
+		<div id="base">
+			<div class="base-level level-1"></div>
+			<div class="base-level level-2"></div>
+			<div class="base-level level-3"></div>
+		</div>
+	</div>
+	<button id="hoistButton" onclick="hoistFlag()">Hoist Flag</button>
+	<script>
+		function hoistFlag() {
+			const message = document.getElementById('message');
+			const flag = document.getElementById('flag');
+			const chakra = document.getElementById('ashoka-chakra');
+			flag.style.width = '240px';
+			chakra.style.width = '40px';
+			chakra.style.height = '40px';
+			chakra.style.marginLeft = '100px';
+			message.style.display = 'block';  
+			document.getElementById("hoistButton").style.display = "none";
+			for (let i = 0; i < 50; i++) {
+				const flower = document.createElement('div');
+				flower.className = 'flower';
+				flower.style.left = Math.random() * 100 + 'vw';
+				flower.style.animationDuration = (Math.random() * 2 + 3) + 's';
+				document.body.appendChild(flower);
+			}
+		}
+	</script>
+	<div id="subscribe" style="display: flex; align-items: center;">
+		<img src="https://yt3.googleusercontent.com/cRbWBQspOR40r_gvfWTwnFIgRKKPrHB1_LWxygMxalSvb7yagxbWCRn5mgtCC25DScaCdD-e5Q=s160-c-k-c0x00ffffff-no-rj"
+			alt="YouTube Logo" style="height: 40px; margin-right: 10px; border-radius: 50%;">
+		<div>
+			<p style="margin: 0;">Subscribe to my YouTube channel for more content!</p>
+			<p style="margin: 0;">
+				Connect with me on
+				<a href="https://youtube.com/@abhishekvermaa10?sub_confirmation=1" target="_blank">
+					<i class="fab fa-youtube" style="font-size: 20px; color: red;"></i>
+				</a>
+				<a href="https://www.instagram.com/abhishekvermaa10" target="_blank">
+					<i class="fab fa-instagram" style="font-size: 20px; color: #E4405F;"></i>
+				</a>
+				<a href="https://www.linkedin.com/in/abhishekvermaa10" target="_blank">
+					<i class="fab fa-linkedin" style="font-size: 20px; color: #0077B5;"></i>
+				</a>
+				<a href="https://t.me/ScaleUpIndiayt" target="_blank">
+					<i class="fab fa-telegram-plane" style="font-size: 20px; color: #0088CC;"></i>
+				</a>
+				<a href="https://github.com/abhishekvermaa10" target="_blank">
+					<i class="fab fa-github" style="font-size: 20px; color: #333;"></i>
+				</a>
+			</p>
+		</div>
+	</div>
+</body>
+</html>
